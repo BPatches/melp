@@ -1,11 +1,11 @@
 <?php
-echo "<!DOCTYPE html>"
-echo '<html lang="en">'
-echo '    <head>'
-echo "        <title>melp Upload demo</title>"
-echo "        <meta charset="utf-8">"
-echo "    </head>"
-echo "    <body>"
+echo "<!DOCTYPE html>";
+echo '<html lang="en">';
+echo '    <head>';
+echo "        <title>melp Upload demo</title>";
+echo '        <meta charset="utf-8">';
+echo "    </head>";
+echo "    <body>";
 
 if ($_FILES["file"]["error"] > 0)
   {
@@ -19,6 +19,6 @@ else
     echo "    Stored in: " . $_FILES["file"]["tmp_name"];
   }
 
-echo "    </body>"
-echo "</html>"
+echo "    </body>";
+echo "</html>";
 ?>
