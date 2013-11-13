@@ -1,4 +1,4 @@
-use team_08;
+use team08;
 
 drop table if exists articles;
 
