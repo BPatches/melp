@@ -20,6 +20,7 @@ else
 
 $fname = "/u/pa/fb/pbarring/pbarring_public/rmp/t8MelpUploads/" . $_POST["nameOnPage"];
 $num ="";
+
 while ( file_exists($fname . $num))
 {
      if($num == "")
@@ -31,9 +32,24 @@ while ( file_exists($fname . $num))
 	  $num += 1;
      }
 }
+
 $fname = $fname . $num;
 
 move_uploaded_file($_FILES["file"]["tmp_name"],$fname);
+
+
+@$db = new mysqli('localhost','team08','mango','team08');
+
+$qu="SELECT articleID FROM articles WHERE articleTitle =" . $_POST["article"];
+$qp =$db->prepare($qu);
+
+$qp -> bind_result($artId);
+$qp -> execute();
+
+$qp -> fetch();
+
+$qu="INSERT INTO pictures (pictureLoc, articleID) values ($fname,$artId)"
+
 
 echo "    Stored in: " . $fname ;
 
