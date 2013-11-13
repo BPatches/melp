@@ -18,7 +18,7 @@ else
      echo "    Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 }
 
-$fname = "t8MelpUploads/" . _POST["nameOnPage"];
+$fname = "/u/pa/fb/pbarring/pbarring_public/rmp/t8MelpUploads/" . $_POST["nameOnPage"];
 $num ="";
 while ( file_exists($fname . $num))
 {
