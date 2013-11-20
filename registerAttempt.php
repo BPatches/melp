@@ -1,19 +1,26 @@
+<?php
 session_start();
-$conn = new mysqli('localhost','team07','mango','team07');
+$conn = new mysqli('localhost','team08','mango','team08');
 
-$uname = $conn->real_escape_string($_POST['uname']);
-$pass = $conn->real_escape_string($_POST['pass']);
+$uname = $conn->escape_string($_POST['uname']);
+$pass = sha1($conn->escape_string($_POST['password']));
 
 if($uname && $pass){
-  $result = $conn->query("Select * from users where username=".$uname);
+  $result = $conn->query("select * from users where userName=\"".$uname."\"");
   if(!$result){
+    echo $conn->error;
     throw new Exception("could not access database");
   }
   if ($result->num_rows==0){
+    $_SESSION['uid']=$conn->insert_id;
     $_SESSION['uname']=$uname;
-    $result = $conn->query("INSERT INTO users (uname,passwd) Values (".$uname.",".$pass.')');
-    throw echo "You have registered, welecome to Melp!";
+    $result = $conn->query("INSERT INTO users (userName,pwd) Values (\"".$uname."\", \"".$pass.'")');
+    if(!$result){
+       echo $conn->error;
+    }      
+    echo "You have registered, welecome to Melp!";
   }else{
-    throw new Exception("that user name is taken");
+    echo "That username is taken, sorry";
   }
 }
+?>
