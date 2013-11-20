@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript"
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1gHfN9FtCpJP_f9oaBpv1xdCuu7YPmug&sensor=false">
     </script>
-    <script type="text/javascript">
+	 <script type="text/javascript">
       function initialize() {
         console.log("initialize called");
         var mapOptions = {
@@ -30,23 +31,44 @@
         };
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	
+	<link rel="stylesheet" type="text/css" href="default.css" />
+  <title>Melp! Maps</title>
+  </head>
+  <body onload="initialize()">
+  <div id="wrapper">
+  <div id="header-wrapper">
+  <div id="header" class="container">
+  <div id="logo">
+	<h1 href="index.php">Melp!</h1>
+	<p>A Yelp! Clone</p>
+	</div>
+	</div>
+	<div id="menu" class="container">
+	<ul>
+	<li>
+		<a title="" accesskey="1" href="index.php">Home Page</a>
+	</li>
+	<li>
+		<a title="" accesskey="1" href="login.php">Login</a>
+	</li>
+	<li>
+		<a title="" accesskey="1" href="establishment.php">Establishment</a>
+	</li>
+	<li class="current_page_item">
+		<a title="" accesskey="1" href="#">Map</a>
+	</li>
+	</div>
+	<div id="page" class="container">
+	<h2>Interactive Map</h2>   
     <div>
       <FORM NAME="myform" ACTION="" METHOD="GET">Enter a latitude and longitude <BR>
     <input TYPE="text" id="latitude">
     <input TYPE="text" id="longitude">
     <input TYPE="button" id="setLocationButton" Value="Find" onClick="setLocation(this.form)">
     </div>
-    
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
-    </style>
 
-  </head>
-  <body>
-    <div id="map-canvas"/>
+    <div id="map-canvas" style="width:300px height:300px"/>
+	</div>
   </body>
 </html>
