@@ -28,7 +28,7 @@ $header="<!DOCTYPE html>
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="maps.html">Map</a>
+		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li>
 		<a title="" accesskey="1" href="search.php">Search</a>
