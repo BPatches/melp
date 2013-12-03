@@ -66,7 +66,7 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
     $escName = $db->real_escape_string($name);
     $escCont = $db->real_escape_string($contents);
 
-    $qu = "INSERT INTO articles (articleTitle, articleContents) Values ('".$escName."','".$escCont."')";
+    $qu = "INSERT INTO articles (articleTitle, articleContents, articleName) Values ('".$escName."','".$escCont."','".$my_file".')";
     $db->query($qu);
     echo $db->error;
     $db->close();
