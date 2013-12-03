@@ -26,9 +26,6 @@
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
-	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li>
@@ -45,6 +42,7 @@
 	<div id="page" class="container">
 	<h2>Home Page</h2>
 	This is the landing page for Melp!. You can create a new page <a href="place.php">here</a>. <br/>
+	Please start your experience by <a href="login.php">creating an account</a> or <a href="search.php">finding an establishment</a>.<br/>
 	</div>
    </div>
   </body>

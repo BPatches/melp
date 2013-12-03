@@ -78,9 +78,6 @@
 	<li>
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
-	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
 	<li class="current_page_item">
 		<a title="" accesskey="1" href="#">Map</a>
 	</li>

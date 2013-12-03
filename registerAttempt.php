@@ -25,9 +25,6 @@
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
-	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li>
@@ -35,7 +32,7 @@
 	</li>
 	</div>
 	<div id="page" class="container">
-	<h2>Registration Attempt</h2>
+	<h2>Registration</h2>
 <?php
 $conn = new mysqli('localhost','team08','mango','team08');
 

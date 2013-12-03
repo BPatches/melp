@@ -26,9 +26,6 @@
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
-	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li class="current_page_item">
@@ -76,6 +73,8 @@
 		} else {
 			echo "No results found for that name and/or address. Please try again.";
 		}
+	} else {
+		echo "No search criterion were used. Please try again.<br/>";
 	}
 	?>
 	<br/>Click <a href="search.php">here</a> to search again.
