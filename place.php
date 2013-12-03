@@ -4,7 +4,9 @@ $db = new mysqli('localhost','team08','mango','team08');
 $name = $_POST["name"];
 $contents = $_POST["contents"];
 
-$header="<!DOCTYPE html>
+$header="
+<?php session_start(); ?>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -38,6 +40,13 @@ $menBar="</title>
 	</li>
 	<li>
 		<a title=\"\" accesskey=\"1\" href=\"../search.php\">Search</a>
+	</li>
+	<li>
+	<?php
+	   if (isset($_SESSION['uname'])){
+              echo \"<a href=\"logout.php\">logout \".$_SESSION['uname'].\"</a>\";
+	   }
+        ?>
 	</li>
 	</div>
 	<div id=\"page\" class=\"container\">";
