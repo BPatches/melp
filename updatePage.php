@@ -4,6 +4,7 @@ $db = new mysqli('localhost','team08','mango','team08');
 $name = $_POST["name"];
 $contents = $_POST["contents"];
 
+
 $header="<!DOCTYPE html>
 
 <html>
@@ -43,21 +44,27 @@ $menBar="</title>
 	<div id=\"page\" class=\"container\">";
 
 $footer="
-    <br><a href=\"../editPlace.php?page=$name>edit</a> 
+    <br> <a href=../editPlace.php?page=$name>edit</a> 
     </div>
   </body>
 </html>";
 
-$escName = $db->real_escape_string($name);
-$escCont = $db->real_escape_string($contents);
+$db = new mysqli('localhost','team08','mango','team08');
+
+
+    $escName = $db->real_escape_string($name);
+    $escCont = $db->real_escape_string($contents);
+
 
 $result = $db->query("select * from articles where articleTitle=\"".$escName."\"");
   if(!$result){
     echo $conn->error;
     throw new Exception("could not access database");
   }
-  if ($result->num_rows==0){
-  
+  if ($result->num_rows!=0){
+    $name = $_POST["name"];
+    $contents = $_POST["contents"];
+
     $page = $header."".$name."".$menBar."<h2>".$name."</h2>".$contents.$footer;
 
     $my_file = "places/".str_replace(" ","_",$name).'.html';
@@ -66,13 +73,13 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
     $escName = $db->real_escape_string($name);
     $escCont = $db->real_escape_string($contents);
 
-    $qu = "INSERT INTO articles (articleTitle, articleContents) Values ('".$escName."','".$escCont."')";
+    $qu = "UPDATE articles set articleContents=\"".$escCont."\" where articleTitle=\"".$escName."\"";
     $db->query($qu);
     echo $db->error;
     $db->close();
     header( 'Location: places/'.str_replace(" ","_",$name).'.html' ) ;
   }else{
-    echo "That page already exists, perhaps you would like to <a href=\"editPlace.php?page=".$name."\">edit it</a>?";
+    echo "That page dosen't exist, perhaps you would like to <a href=\"editPlace.php?page=".$name."\">edit it</a>?";
   }
 
 ?>
