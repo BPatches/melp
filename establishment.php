@@ -44,7 +44,7 @@
 	</div>
 	<div id="page" class="container">
 	<h2>Establishment</h2>
-	This is the page for an establishment.
+	This is the page to search for an establishment.
     </div>
   </body>
 </html>
