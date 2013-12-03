@@ -42,6 +42,7 @@
 	<div id="page" class="container">
 	<h2>Search</h2>
 	Search for an establishment using the field(s) below.<br/>
+	Leave all fields blank to show all available articles.<br/>
 	
 	<form action="searchResult.php" method="POST">
      Location name: <input type="text" name="searchname"><br>
