@@ -52,7 +52,7 @@
 		echo "<input type=\"hidden\" name=\"name\" value=\"".$name."\">";
 		$result = $db->query("select address from addresses where name=\"".$escName."\"");
 		$row = $result->fetch_row();
-		echo "Edit Address: <input type=\"text\" name=\"address\" value=".$row[0]."><br>";
+		echo "Edit Address: <input type=\"text\" name=\"address\" value=\"".$row[0]."\"><br>";
 		$result = $db->query("select articleContents from articles where articleTitle=\"".$escName."\"");
 		echo "<textarea cols=\"75\" rows=\"10\" name=\"contents\">";
 		$row = $result->fetch_row();
