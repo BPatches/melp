@@ -4,7 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="default.css" />
-<title>Melp! Home Page</title>
+<title>Melp! Search</title>
 </head>
   <body>  
   <div id="wrapper">
@@ -46,8 +46,30 @@
 	<h2>Search Results</h2>
 	
 	<?php
+	$conn = new mysqli('localhost','team08','mango','team08');
 	
+	$searchname = $conn->real_escape_string($_POST['searchname']);
+	if($searchname) {
+		$result = $conn->query("Select * from addresses where name like \"%".$searchname."%\"");
+		if(!$result) {
+			throw new Exception("Error searching the database. Try again later.");
+		}
+		if($result->num_rows>0) {
+		echo "Results found:<br/><br/>";
+		echo "<table border=1 width=300>";
+		echo "<tr><td>Name</td><td>Address</td></tr>";
+		$numresults = $result->num_rows;
+		for ($numresults; $numresults > 0; $numresults--) {
+			$row = $result->fetch_row();
+			echo "<tr><td>".$row[1]."</td><td>".$row[2]."</td></tr>";
+		}
+		echo "</table>";
+		} else {
+			echo "No results found for that name. Please try again.";
+	}
+	}
 	?>
+	<br/>Click <a href="search.php">here</a> to search again.
 	</div>
    </div>
   </body>

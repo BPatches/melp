@@ -4,7 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="default.css" />
-<title>Melp! Home Page</title>
+<title>Melp! Search</title>
 </head>
   <body>  
   <div id="wrapper">
