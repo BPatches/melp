@@ -53,5 +53,8 @@ fwrite($handle, $page);
 
 $qu = "INSERT INTO articles (articleName, articleContents) Values (".real_escape_string($name).",",real_escape_string("contents").")";
 $db->query($qu);
+
+$db->close();
+
 header( 'Location: '.$name.'.html' ) ;
 ?>
