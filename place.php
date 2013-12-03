@@ -67,19 +67,19 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
   }
   if ($result->num_rows==0){
   
-    $page = $header."".$name."".$menBar."<h2>".$name."</h2>".$contents.$footer;
+    $page = $header."".$name."".$menBar."<h2>".htmlspecialchars($name)."</h2>".htmlspecialchars($contents).$footer;
 
-    $my_file = "places/".str_replace(" ","_",$name).'.html';
+    $my_file = "places/".str_replace(" ","_",$name).'.php';
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
     fwrite($handle, $page);
     $escName = $db->real_escape_string($name);
     $escCont = $db->real_escape_string($contents);
 
-    $qu = "INSERT INTO articles (articleTitle, articleContents, articleName) Values ('".$escName."','".$escCont."','".$my_file".')";
+    $qu = "INSERT INTO articles (articleTitle, articleContents, articlePage) Values ('".$escName."','".$escCont."','".$my_file."')";
     $db->query($qu);
     echo $db->error;
     $db->close();
-    header( 'Location: places/'.str_replace(" ","_",$name).'.html' ) ;
+    header( 'Location: places/'.str_replace(" ","_",$name).'.php' ) ;	
   }else{
     echo "That page already exists, perhaps you would like to <a href=\"editPlace.php?page=".$name."\">edit it</a>?";
   }
