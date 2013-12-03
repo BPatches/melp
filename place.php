@@ -113,7 +113,7 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
   }
   if ($result->num_rows==0){
   
-    $page = $header."".$name."".$menBar."<h2>".htmlspecialchars($name)."</h2>".htmlspecialchars($contents).$footer;
+    $page = $header."".$name."".$menBar."<h2>".htmlspecialchars($name)."</h2><h3>".htmlspecialchars($address)."</h3>".htmlspecialchars($contents).$footer;
 
     $my_file = "places/".str_replace(" ","_",$name).'.php';
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);

@@ -72,19 +72,24 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
   }
   if ($result->num_rows!=0){
     $name = $_POST["name"];
+	$address = $_POST["address"];
     $contents = $_POST["contents"];
 
-    $page = $header."".htmlspecialchars($name)."".$menBar."<h2>".htmlspecialchars($name)."</h2>".$contents.$footer;
+    $page = $header."".$name."".$menBar."<h2>".htmlspecialchars($name)."</h2><h3>".htmlspecialchars($address)."</h3>".htmlspecialchars($contents).$footer;
 
     $my_file = "places/".str_replace(" ","_",$name).'.php';
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
     fwrite($handle, $page);
     $escName = $db->real_escape_string($name);
+	$escAddr = $db->real_escape_string($address);
     $escCont = $db->real_escape_string($contents);
 
     $qu = "UPDATE articles set articleContents=\"".$escCont."\" where articleTitle=\"".$escName."\"";
     $db->query($qu);
     echo $db->error;
+	$qu2 = "UPDATE addresses set address=\"".$escAddr."\" where name=\"".$escName."\"";
+	$db->query($qu2);
+	echo $db->error;
     $db->close();
     header( 'Location: places/'.str_replace(" ","_",$name).'.php' ) ;
   }else{
