@@ -49,8 +49,17 @@
 	$conn = new mysqli('localhost','team08','mango','team08');
 	
 	$searchname = $conn->real_escape_string($_POST['searchname']);
-	if($searchname) {
-		$result = $conn->query("Select * from addresses where name like \"%".$searchname."%\"");
+	$address = $conn->real_escape_string($_POST['address']);
+	
+	if($searchname || $address) {
+		if($address && $searchname) {
+			$result = $conn->query("Select * from addresses where address like \"%".$address."%\"
+				and name like \"%".$searchname."%\"");
+		} else if ($address) {
+			$result = $conn->query("Select * from addresses where address like \"%".$address."%\"");
+		} else {
+			$result = $conn->query("Select * from addresses where name like \"%".$searchname."%\"");
+		}
 		if(!$result) {
 			throw new Exception("Error searching the database. Try again later.");
 		}
@@ -65,8 +74,8 @@
 		}
 		echo "</table>";
 		} else {
-			echo "No results found for that name. Please try again.";
-	}
+			echo "No results found for that name and/or address. Please try again.";
+		}
 	}
 	?>
 	<br/>Click <a href="search.php">here</a> to search again.

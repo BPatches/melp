@@ -48,6 +48,7 @@
 	
 	<form action="searchResult.php" method="POST">
      Location name: <input type="text" name="searchname"><br>
+	 Address: <input type="text" name="address"><br>
      <input type="submit" value="Submit">
    </form>
    
