@@ -64,7 +64,9 @@
   <div id="header-wrapper">
   <div id="header" class="container">
   <div id="logo">
-	<h1 href="index.php">Melp!</h1>
+	<h1>
+		<a href="index.php">Melp!</a>
+	</h1>
 	<p>A Yelp! Clone</p>
 	</div>
 	</div>
@@ -81,6 +83,9 @@
 	</li>
 	<li class="current_page_item">
 		<a title="" accesskey="1" href="#">Map</a>
+	</li>
+	<li>
+		<a title="" accesskey="1" href="search.php">Search</a>
 	</li>
 	<li>
 	<?php

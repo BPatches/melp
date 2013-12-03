@@ -22,7 +22,7 @@
 		<a title="" accesskey="1" href="index.php">Home Page</a>
 	</li>
 	<li class="current_page_item">
-		<a title="" accesskey="1" href="#">Login</a>
+		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
 		<a title="" accesskey="1" href="establishment.php">Establishment</a>
@@ -30,11 +30,13 @@
 	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
+	<li>
+		<a title="" accesskey="1" href="search.php">Search</a>
+	</li>
 	</div>
 	<div id="page" class="container">
 	<h2>Registration Attempt</h2>
 <?php
-session_start();
 $conn = new mysqli('localhost','team08','mango','team08');
 
 $uname = $conn->escape_string($_POST['uname']);
