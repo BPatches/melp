@@ -1,3 +1,38 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+	<link rel="stylesheet" type="text/css" href="default.css" />
+<title>Melp! Login</title>
+</head>
+  <body>  
+	<div id="wrapper">
+  <div id="header-wrapper">
+  <div id="header" class="container">
+  <div id="logo">
+	<h1>
+	<a href="index.php">Melp!</a>
+	</h1>
+	<p>A Yelp! Clone</p>
+	</div>
+	</div>
+	<div id="menu" class="container">
+	<ul>
+	<li>
+		<a title="" accesskey="1" href="index.php">Home Page</a>
+	</li>
+	<li class="current_page_item">
+		<a title="" accesskey="1" href="#">Login</a>
+	</li>
+	<li>
+		<a title="" accesskey="1" href="establishment.php">Establishment</a>
+	</li>
+	<li>
+		<a title="" accesskey="1" href="maps.php">Map</a>
+	</li>
+	</div>
+	<div id="page" class="container">
+	<h2>Registration Attempt</h2>
 <?php
 session_start();
 $conn = new mysqli('localhost','team08','mango','team08');
@@ -18,9 +53,13 @@ if($uname && $pass){
     if(!$result){
        echo $conn->error;
     }      
-    echo "You have registered, welecome to Melp!";
+    echo "You have registered, welcome to Melp!";
   }else{
-    echo "That username is taken, sorry";
+    echo "That username is taken, sorry. Please try a different username.";
   }
 }
+echo "<br/>Click <a href='login.php'>here</a> to return to the login page.";
 ?>
+</div>
+	</body>
+	</html>

@@ -34,7 +34,7 @@
 	<li>
 	<?php
 	   if (isset($_SESSION['uname'])){
-              echo "<br> <a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
+              echo "<a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
 	   }
         ?>
 	</li>

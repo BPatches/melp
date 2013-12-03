@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -80,6 +81,13 @@
 	</li>
 	<li class="current_page_item">
 		<a title="" accesskey="1" href="#">Map</a>
+	</li>
+	<li>
+	<?php
+	   if (isset($_SESSION['uname'])){
+              echo "<a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
+	   }
+        ?>
 	</li>
 	</div>
 	<div id="page" class="container">
