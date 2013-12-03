@@ -34,7 +34,7 @@ $header="<!DOCTYPE html>
 		<a title="" accesskey="1" href="maps.html">Map</a>
 	</li>
 	</div>
-	<div id="page" class="container">";
+	<div id="page" class="container">
 	<?php
 		$db = new mysqli('localhost','team08','mango','team08');
 		$name = $_GET["page"];
@@ -52,4 +52,4 @@ $header="<!DOCTYPE html>
 	?>
     </div>
   </body>
-</html>";
+</html>

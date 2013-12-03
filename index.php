@@ -44,7 +44,7 @@
 	</div>
 	<div id="page" class="container">
 	<h2>Home Page</h2>
-	This is the landing page for Melp!. Image submission can be found <a href="uploadForm.php">here</a>. <br/>
+	This is the landing page for Melp!. You can create a new page <a href="place.php">here</a>. <br/>
 	</div>
    </div>
   </body>
