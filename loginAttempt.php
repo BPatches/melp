@@ -34,13 +34,6 @@
 	<li>
 		<a title="" accesskey="1" href="search.php">Search</a>
 	</li>
-	<li>
-	<?php
-	   if (isset($_SESSION['uname'])){
-              echo "<a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
-	   }
-        ?>
-	</li>
 	</div>
 	<div id="page" class="container">
 	<h2>Login Attempt</h2>

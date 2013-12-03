@@ -76,6 +76,8 @@
 		} else {
 			echo "No results found for that name and/or address. Please try again.";
 		}
+	} else {
+		echo "No search criterion were used. Please try again.<br/>";
 	}
 	?>
 	<br/>Click <a href="search.php">here</a> to search again.
