@@ -6,27 +6,44 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1gHfN9FtCpJP_f9oaBpv1xdCuu7YPmug&sensor=false">
     </script>
 	 <script type="text/javascript">
+      var map;
       function initialize() {
-        console.log("initialize called");
+        geocoder = new google.maps.Geocoder();
+        // console.log("initialize called");
         var mapOptions = {
           center: new google.maps.LatLng(39.750287, -105.221344),
           zoom: 14,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
+        map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
       }
+      var geocoder;
+      function codeAddress() {
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
       function setLocation(form){
 
           var myLatlng = new google.maps.LatLng(parseInt(form.latitude.value), parseInt(form.longitude.value));
-          console.log("setLocation Called: " + parseInt(form.longitude.value));
+          // console.log("setLocation Called: " + parseInt(form.longitude.value));
           var mapOptions = {
             
             zoom: 4,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
           google.maps.event.addDomListener(window, 'load', initialize);
         };
       google.maps.event.addDomListener(window, 'load', initialize);
@@ -68,10 +85,12 @@
 	<div id="page" class="container">
 	<h2>Interactive Map</h2>   
     <div>
-      <FORM NAME="myform" ACTION="" METHOD="GET">Enter a latitude and longitude <BR>
-    <input TYPE="text" id="latitude">
+      <FORM NAME="myform" ACTION="" METHOD="GET">Enter an address<BR>
+    <!-- <input TYPE="text" id="latitude">
     <input TYPE="text" id="longitude">
-    <input TYPE="button" id="setLocationButton" Value="Find" onClick="setLocation(this.form)">
+    <input TYPE="button" id="setLocationButton" Value="Find" onClick="setLocation(this.form)"> -->
+    <input TYPE="text" id="address">
+    <input type="button" value="Find" onclick="codeAddress()">
     </div>
 
 	<br/>
