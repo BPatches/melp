@@ -47,6 +47,7 @@
 
 $db = new mysqli('localhost','team08','mango','team08');
 $name = $_POST["name"];
+$address = $_POST["address"];
 $contents = $_POST["contents"];
 
 $header="<?php session_start(); ?>
@@ -97,6 +98,7 @@ $menBar="</title>
 
 $footer="
     <br> <a href='../editPlace.php?page=".htmlspecialchars($name)."'>edit</a> 
+	</div>
     </div>
   </body>
 </html>";
@@ -117,11 +119,15 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
     fwrite($handle, $page);
     $escName = $db->real_escape_string($name);
+	$escAddr = $db->real_escape_string($address);
     $escCont = $db->real_escape_string($contents);
 
     $qu = "INSERT INTO articles (articleTitle, articleContents, articlePage) Values ('".$escName."','".$escCont."','".$my_file."')";
+	$qu2 = "INSERT INTO addresses (name, address) Values ('".$escName."','".$escAddr."')";
     $db->query($qu);
     echo $db->error;
+	$db->query($qu2);
+	echo $db->error;
     $db->close();
     header( 'Location: places/'.str_replace(" ","_",$name).'.php' ) ;	
   }else{

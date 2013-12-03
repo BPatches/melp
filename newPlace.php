@@ -44,6 +44,7 @@
 	<div id="page" class="container">
 	  <form action="place.php" method="post">
 	    Article Title: <input type="text" name="name"><br>
+		Location Address: <input type="text" name="address"><br>
 	    Article Contents:<br> <textarea rows="10" cols="75" name="contents"></textarea><br>
 	    <input type="submit" value="submit">
 	  </form>

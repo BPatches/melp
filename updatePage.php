@@ -53,6 +53,7 @@ $menBar="</title>
 
 $footer="
     <br> <a href='../editPlace.php?page=".htmlspecialchars($name)."'>edit</a> 
+	</div>
     </div>
   </body>
 </html>";
