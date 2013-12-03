@@ -41,8 +41,9 @@
 	</div>
 	<div id="page" class="container">
 	<h2>Home Page</h2>
-	This is the landing page for Melp!. You can create a new page <a href="place.php">here</a>. <br/>
-	Please start your experience by <a href="login.php">creating an account</a> or <a href="search.php">finding an establishment</a>.<br/>
+	This is the landing page for Melp!. <br/>
+	You can create a new page <a href="newPlace.html">here</a>. <br/>
+	Start your user experience by <a href="login.php">creating an account</a> or <a href="search.php">finding an establishment</a>.<br/>
 	</div>
    </div>
   </body>
