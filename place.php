@@ -6,7 +6,8 @@ $header="<!DOCTYPE html>
 <meta charset=\"ISO-8859-1\">
 	<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\" />
 
-<title>Melp! Establishment Page</title>
+<title>";
+$menBar="</title>
 </head>
   <body>  
 	<div id=\"wrapper\">
@@ -40,6 +41,17 @@ $footer="    </div>
   </body>
 </html>";
 
-echo $header;
-echo $footer;
+$db = new mysqli('localhost','team08','mango','team08');
+$name = $db->$_POST["name"];
+$contents = $_POST["contents"];
+
+$page = $header."".$name."".$menBar."<h2>".$name."</h2>".$contents;
+
+$my_file = $name.'.html';
+$handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+fwrite($handle, $page);
+
+$qu = "INSERT INTO articles (articleName, articleContents) Values (".real_escape_string($name).",",real_escape_string("contents").")";
+$db->query($qu);
+header( 'Location: '.$name.'.html' ) ;
 ?>
