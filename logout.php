@@ -25,9 +25,6 @@
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
-	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li>
@@ -37,7 +34,9 @@
 	<div id="page" class="container">
 	<h2>Logout</h2>
 
-<?php session_destroy();
+<?php 
+session_start();
+session_destroy();
 
 echo "You are now logged out.";
 

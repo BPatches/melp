@@ -26,9 +26,6 @@
 		<a title="" accesskey="1" href="login.php">Login</a>
 	</li>
 	<li>
-		<a title="" accesskey="1" href="establishment.php">Establishment</a>
-	</li>
-	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
 	<li>
