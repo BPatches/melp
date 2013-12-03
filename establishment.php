@@ -33,11 +33,13 @@
 	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
-
+	<li>
+		<a title="" accesskey="1" href="search.php">Search</a>
+	</li>
 	<li>
 	<?php
 	   if (isset($_SESSION['uname'])){
-              echo "<br> <a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
+              echo "<a href=\"logout.php\">logout ".$_SESSION['uname']."</a>";
 	   }
         ?>
 	</li>

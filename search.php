@@ -4,7 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="default.css" />
-<title>Melp! Home Page</title>
+<title>Melp! Search</title>
 </head>
   <body>  
   <div id="wrapper">
@@ -12,15 +12,15 @@
   <div id="header" class="container">
   <div id="logo">
 	<h1>
-	<a href="#">Melp!</a>
+	<a href="index.php">Melp!</a>
 	</h1>
 	<p>A Yelp! Clone</p>
 	</div>
 	</div>
 	<div id="menu" class="container">
 	<ul>
-	<li class="current_page_item">
-		<a title="" accesskey="1" href="#">Home Page</a>
+	<li>
+		<a title="" accesskey="1" href="index.php">Home Page</a>
 	</li>
 	<li>
 		<a title="" accesskey="1" href="login.php">Login</a>
@@ -31,8 +31,8 @@
 	<li>
 		<a title="" accesskey="1" href="maps.php">Map</a>
 	</li>
-	<li>
-		<a title="" accesskey="1" href="search.php">Search</a>
+	<li class="current_page_item">
+		<a title="" accesskey="1" href="#">Search</a>
 	</li>
 	<li>
 	<?php
@@ -43,8 +43,15 @@
 	</li>
 	</div>
 	<div id="page" class="container">
-	<h2>Home Page</h2>
-	This is the landing page for Melp!. Image submission can be found <a href="uploadForm.php">here</a>. <br/>
+	<h2>Search</h2>
+	Search for an establishment using the field(s) below.<br/>
+	
+	<form action="searchResult.php" method="POST">
+     Location name: <input type="text" name="searchname"><br>
+	 Address: <input type="text" name="address"><br>
+     <input type="submit" value="Submit">
+   </form>
+   
 	</div>
    </div>
   </body>
