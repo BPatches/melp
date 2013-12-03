@@ -65,9 +65,9 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
     $name = $_POST["name"];
     $contents = $_POST["contents"];
 
-    $page = $header."".$name."".$menBar."<h2>".$name."</h2>".$contents.$footer;
+    $page = $header."".htmlspecialchars($name)."".$menBar."<h2>".htmlspecialchars($name)."</h2>".$contents.$footer;
 
-    $my_file = "places/".str_replace(" ","_",$name).'.html';
+    $my_file = "places/".str_replace(" ","_",$name).'.php';
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
     fwrite($handle, $page);
     $escName = $db->real_escape_string($name);
@@ -77,7 +77,7 @@ $result = $db->query("select * from articles where articleTitle=\"".$escName."\"
     $db->query($qu);
     echo $db->error;
     $db->close();
-    header( 'Location: places/'.str_replace(" ","_",$name).'.html' ) ;
+    header( 'Location: places/'.str_replace(" ","_",$name).'.php' ) ;
   }else{
     echo "That page dosen't exist, perhaps you would like to <a href=\"editPlace.php?page=".$name."\">edit it</a>?";
   }
