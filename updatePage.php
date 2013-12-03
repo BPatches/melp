@@ -5,8 +5,7 @@ $name = $_POST["name"];
 $contents = $_POST["contents"];
 
 
-$header="
-<?php session_start() ?>
+$header="<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html>
@@ -42,11 +41,10 @@ $menBar="</title>
 	<li>
 		<a title=\"\" accesskey=\"1\" href=\"../search.php\">Search</a>
 	</li>
-	
 	<li>
 	<?php
-	   if (isset($_SESSION['uname'])){
-              echo \"<a href=\"logout.php\">logout \".$_SESSION['uname'].\"</a>\";
+	   if (isset(\$_SESSION['uname'])){
+              echo \"<a href=\\\"logout.php\\\">logout \".\$_SESSION['uname'].\"</a>\";
 	   }
         ?>
 	</li>
